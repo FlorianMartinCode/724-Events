@@ -16,7 +16,7 @@ const Page = () => {
   const { data } = useData();
   const Events = data?.events;
   const last = Events?.sort((evtA, evtB) =>
-    (evtA.id) > (evtB.id) ? -1 : 1
+    (evtA.date) > (evtB.date)
   )[0];
   return <>
     <header>
@@ -126,7 +126,7 @@ const Page = () => {
             title={last.title}
             date={new Date(last.date)}
             small
-            label="boom"
+            label={last.type}
           />
         )}
       </div>
