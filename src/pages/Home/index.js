@@ -16,8 +16,9 @@ const Page = () => {
   const { data } = useData();
   const Events = data?.events;
   const last = Events?.sort((evtA, evtB) =>
-    (evtA.date) > (evtB.date)
+    new Date(evtA.date) > new Date(evtB.date) ? -1 : 1
   )[0];
+  
   return <>
     <header>
       <Menu />
